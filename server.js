@@ -8,22 +8,10 @@ var options = {
         fs.readFileSync('./ca.crt', 'utf8'),
     ],
     ciphers: [
-        "ECDHE-RSA-AES256-SHA384",
-        "DHE-RSA-AES256-SHA384",
-        "ECDHE-RSA-AES256-SHA256",
-        "DHE-RSA-AES256-SHA256",
-        "ECDHE-RSA-AES128-SHA256",
-        "DHE-RSA-AES128-SHA256",
-        "HIGH",
-        "!aNULL",
-        "!eNULL",
-        "!EXPORT",
-        "!DES",
-        "!RC4",
-        "!MD5",
-        "!PSK",
-        "!SRP",
-        "!CAMELLIA"
+        "TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256",
+        "TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384",
+        "TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256",
+        "TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384",
     ].join(':'),
     honorCipherOrder: true
 };
@@ -41,7 +29,7 @@ app.post('/', function(req, res){
   res.send(mock);
 });
 
-var port = 8000;
+var port = 443;
 https.createServer(options, app).listen(port, function(){
     console.log("Express server listening on port " + port);
 });
