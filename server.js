@@ -7,12 +7,13 @@ var options = {
     ca: [
         fs.readFileSync('./ca.crt', 'utf8'),
     ],
-    ciphers: [
-        "TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256",
-        "TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384",
-        "TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256",
-        "TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384",
-    ].join(':'),
+    ciphers: "ECDHE-RSA-AES256-SHA:AES256-SHA:RC4-SHA:RC4:HIGH:!MD5:!aNULL:!EDH:!AESGCM",
+    // ciphers: [
+        // "TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256",
+        // "TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384",
+        // "TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256",
+        // "TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384",
+    // ].join(':'),
     honorCipherOrder: true
 };
 
