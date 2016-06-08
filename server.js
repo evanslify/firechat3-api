@@ -11,7 +11,7 @@ var options = {
     ],
     secureProtocol: 'SSLv23_method',
     secureOptions: constants.SSL_OP_NO_SSLv3,
-    ciphers: "ECDHE-RSA-AES256-SHA:AES256-SHA:RC4-SHA:RC4:HIGH:!MD5:!aNULL:!EDH:!AESGCM",
+    ciphers: "ECDHE-RSA-AES256-SHA:AES256-SHA:!MD5:!aNULL:!EDH:!AESGCM",
     // ciphers: [
         // "TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256",
         // "TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384",
