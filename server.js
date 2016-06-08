@@ -9,7 +9,7 @@ var options = {
     ca: [
         fs.readFileSync('./ca.crt', 'utf8'),
     ],
-    secureProtocol: 'SSLv23_method',
+    secureProtocol: 'TLSv1_2_method',
     secureOptions: constants.SSL_OP_NO_SSLv3,
     ciphers: "ECDHE-RSA-AES256-SHA:AES256-SHA:!MD5:!aNULL:!EDH:!AESGCM",
     // ciphers: [
