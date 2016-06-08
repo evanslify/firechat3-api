@@ -1,12 +1,16 @@
 var fs = require('fs');
 var http = require('http');
 var https = require('https');
+var constants = require('constants');
+
 var options = {
     key: fs.readFileSync('./api-key.key', 'utf8'),
     cert: fs.readFileSync('./api-cert.crt', 'utf8'),
     ca: [
         fs.readFileSync('./ca.crt', 'utf8'),
     ],
+    secureProtocol: 'SSLv23_method',
+    secureOptions: constants.SSL_OP_NO_SSLv3,
     ciphers: "ECDHE-RSA-AES256-SHA:AES256-SHA:RC4-SHA:RC4:HIGH:!MD5:!aNULL:!EDH:!AESGCM",
     // ciphers: [
         // "TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256",
