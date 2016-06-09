@@ -3,6 +3,10 @@ var http = require('http');
 var https = require('https');
 var constants = require('constants');
 var apn = require('apn');
+var express = require('express');
+var bodyParser = require('body-parser');
+var app = express();
+
 
 var options = {
     key: fs.readFileSync('./ssl-cert/api-key.key', 'utf8'),
@@ -15,17 +19,17 @@ var options = {
     honorCipherOrder: true
 };
 
-var express = require('express');
-var app = express();
 
 var mock = {
     'status': true,
     'new_user': true,
 };
 
+app.use(bodyParser.json());
 app.post('/', function(req, res){
   console.log(req.body);
   res.send(mock);
+  console.log(JSON.stringify(req.body, null, 2));
 });
 
 var port = 443;
