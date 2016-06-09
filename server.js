@@ -2,27 +2,23 @@ var fs = require('fs');
 var http = require('http');
 var https = require('https');
 var constants = require('constants');
+var apn = require('apn');
+var bodyparser = require('body-parser');
 
 var options = {
-    key: fs.readFileSync('./api-key.key', 'utf8'),
-    cert: fs.readFileSync('./api-cert.crt', 'utf8'),
+    key: fs.readFileSync('./ssl-cert/api-key.key', 'utf8'),
+    cert: fs.readFileSync('./ssl-cert/api-cert.crt', 'utf8'),
     ca: [
-        fs.readFileSync('./ca.crt', 'utf8'),
-    ],
+            fs.readFileSync('./ssl-cert/ca.crt', 'utf8'),
+        ],
     secureProtocol: 'TLSv1_2_method',
     secureOptions: constants.SSL_OP_NO_SSLv3,
-    ciphers: "ECDHE-RSA-AES256-SHA:AES256-SHA:!MD5:!aNULL:!EDH:!AESGCM",
-    // ciphers: [
-        // "TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256",
-        // "TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384",
-        // "TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256",
-        // "TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384",
-    // ].join(':'),
     honorCipherOrder: true
 };
 
 var express = require('express');
 var app = express();
+app.use(bodyparser.JSON());
 
 var mock = {
     'status': true,
@@ -31,7 +27,6 @@ var mock = {
 
 app.post('/', function(req, res){
   console.log(req.body);
-  res.status = 200;
   res.send(mock);
 });
 
