@@ -29,7 +29,6 @@ app.use(bodyParser.json());
 app.post('/', function(req, res){
   console.log(req.body);
   res.send(mock);
-  console.log(JSON.stringify(req.body, null, 2));
 });
 
 var port = 443;
