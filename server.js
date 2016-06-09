@@ -18,7 +18,7 @@ var options = {
 
 var express = require('express');
 var app = express();
-app.use(bodyparser.JSON());
+app.use(express.bodyParser());
 
 var mock = {
     'status': true,
