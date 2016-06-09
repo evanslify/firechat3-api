@@ -3,7 +3,6 @@ var http = require('http');
 var https = require('https');
 var constants = require('constants');
 var apn = require('apn');
-var bodyparser = require('body-parser');
 
 var options = {
     key: fs.readFileSync('./ssl-cert/api-key.key', 'utf8'),
@@ -18,7 +17,6 @@ var options = {
 
 var express = require('express');
 var app = express();
-app.use(express.bodyParser());
 
 var mock = {
     'status': true,
