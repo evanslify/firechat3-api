@@ -30,14 +30,14 @@ msgRef.orderByChild('time').startAt(
     }
 );
 
-function broadcast(username, message) {
-    console.log('attempt to send notification:', username, message);
-    var msg = username + ': ' + message;
+function broadcast(username, content) {
+    console.log('attempt to send notification:', username, content);
+    var content = username + ': ' + content;
     var message = new gcm.Message({
         priority: "high",
         notification: {
             title: "FireChat",
-            body: msg
+            body: content
         }
     });
     var sender = new gcm.Sender("AIzaSyB0g2jxzqhPTlwZL9AxRvmD0NGbtL-Eg9I");
