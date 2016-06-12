@@ -13,6 +13,7 @@
     "body-parser": "^1.15.1",
     "express": "^4.13.4",
     "firebase": "^3.0.4",
-    "moment": "^2.13.0"
+    "moment": "^2.13.0",
+    "node-gcm": "^1.0.0-alpha.1"
   }
 }
