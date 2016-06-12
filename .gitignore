@@ -40,7 +40,3 @@ bower_components
 ref/
 .DS_Store
 .tern-port
-
-apn-cert/
-firebase-cert/
-ssl-cert/
