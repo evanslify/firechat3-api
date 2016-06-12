@@ -26,17 +26,18 @@ msgRef.orderByChild('time').startAt(
         var data = snapshot.val();
         var title = snapshot.key;
         console.log('chat message:', data);
-        broadcast(data.message);
+        broadcast(data.username, data.message);
     }
 );
 
-function broadcast(data) {
-    console.log('attempt to send notification:', data);
+function broadcast(username, message) {
+    console.log('attempt to send notification:', username, message);
+    var msg = username + ': ' + message;
     var message = new gcm.Message({
         priority: "high",
         notification: {
             title: "FireChat",
-            body: data.message
+            body: msg
         }
     });
     var sender = new gcm.Sender("AIzaSyB0g2jxzqhPTlwZL9AxRvmD0NGbtL-Eg9I");
